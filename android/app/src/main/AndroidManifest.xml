@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.resistance_calculator">
+    package="com.libson.resistance_calculator">
    <application
-        android:label="resistance_calculator"
+        android:label="Resistance Caclulator"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

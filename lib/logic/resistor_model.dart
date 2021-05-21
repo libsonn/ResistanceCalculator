@@ -8,7 +8,7 @@ class ResistorModel {
   final int temperatureRate;
 
   ResistorModel({
-    this.numberOfLines = 0,
+    this.numberOfLines = 3,
     this.listOfSelectedLines,
     this.resistanceValue = 0.0,
     this.tolerance = 20.0,

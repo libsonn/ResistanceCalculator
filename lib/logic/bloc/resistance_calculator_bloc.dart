@@ -15,7 +15,21 @@ class ResistanceCalculatorBloc
     extends Bloc<ResistanceCalculatorEvent, ResistanceCalculatorState> {
   final CalculationLogic calculationLogic;
   ResistanceCalculatorBloc({@required this.calculationLogic})
-      : super(ResistanceCalculatorInitial());
+      : super(
+          ResistanceCalculatorInitial(
+            resistorModel: new ResistorModel(
+              numberOfLines: 3,
+              listOfSelectedLines: [
+                listOfFiveLines[4],
+                listOfFiveLines[3],
+                listOfFiveLines[3],
+                listOfFiveLines[1],
+                listOfFiveLines[0],
+                listOfFiveLines[3]
+              ],
+            ),
+          ),
+        );
 
   @override
   Stream<ResistanceCalculatorState> mapEventToState(
@@ -36,7 +50,7 @@ class ResistanceCalculatorBloc
     AddLine event,
   ) async* {
     ResistorModel resistorModel;
-    if (state.resistorModel.numberOfLines < 5) {
+    if (state.resistorModel.numberOfLines < 6) {
       resistorModel = state.resistorModel
           .copyWith(numberOfLines: state.resistorModel.numberOfLines + 1);
       resistorModel =
@@ -71,6 +85,7 @@ class ResistanceCalculatorBloc
 
     resistorModel =
         calculationLogic.calculateResistance(resistor: resistorModel);
+
     yield ChangedValuesState(resistorModel: resistorModel);
   }
 }

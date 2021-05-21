@@ -10,19 +10,9 @@ abstract class ResistanceCalculatorState extends Equatable {
 }
 
 class ResistanceCalculatorInitial extends ResistanceCalculatorState {
-  ResistanceCalculatorInitial()
-      : super(
-          resistorModel: ResistorModel(
-            numberOfLines: 3,
-            listOfSelectedLines: [
-              listOfWikiLines[4],
-              listOfWikiLines[3],
-              listOfWikiLines[1],
-              listOfWikiLines[0],
-              listOfWikiLines[3],
-            ],
-          ),
-        );
+  final ResistorModel resistorModel;
+  ResistanceCalculatorInitial({@required this.resistorModel})
+      : super(resistorModel: ResistorModel());
 
   @override
   List<Object> get props => [resistorModel];

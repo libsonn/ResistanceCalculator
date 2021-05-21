@@ -30,6 +30,15 @@ class CalculationLogic {
         _tolerance = resistor.listOfSelectedLines[3].tolerance;
         _temperatureRate = resistor.listOfSelectedLines[4].temperatureRate;
         break;
+
+      case 6:
+        _resistance = (resistor.listOfSelectedLines[0].firstLineValue * 10 +
+                resistor.listOfSelectedLines[1].secondLineValue * 1 +
+                resistor.listOfSelectedLines[2].secondLineValue * 0.1) *
+            resistor.listOfSelectedLines[3].multiplier;
+        _tolerance = resistor.listOfSelectedLines[4].tolerance;
+        _temperatureRate = resistor.listOfSelectedLines[5].temperatureRate;
+        break;
     }
 
     resistor = resistor.copyWith(
